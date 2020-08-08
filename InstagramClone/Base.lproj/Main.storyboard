@@ -89,7 +89,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="submitLogIn" destination="Woa-2n-UAp" id="6g9-bG-H3G"/>
+                        <outlet property="submitLogInButton" destination="Woa-2n-UAp" id="6g9-bG-H3G"/>
                         <outletCollection property="logInTextFields" destination="551-E3-QaH" collectionClass="NSMutableArray" id="aip-a4-TwA"/>
                         <outletCollection property="logInTextFields" destination="5z6-JI-Ai5" collectionClass="NSMutableArray" id="wMs-cN-PM7"/>
                     </connections>
@@ -101,13 +101,13 @@
         <!--Sign Up View Controller-->
         <scene sceneID="rIH-LM-uWu">
             <objects>
-                <viewController id="zmn-j5-pmh" customClass="SignUpViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="zmn-j5-pmh" customClass="SignUpViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TXx-HE-r8t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYn-er-eDS">
-                                <rect key="frame" x="48" y="189.5" width="319" height="50"/>
+                                <rect key="frame" x="48" y="233.5" width="319" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="k4H-RI-YhN"/>
                                 </constraints>
@@ -116,21 +116,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1yk-Jq-fTC">
-                                <rect key="frame" x="48" y="262.5" width="319" height="50"/>
+                                <rect key="frame" x="48" y="306.5" width="319" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IK5-bQ-glc"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGg-IN-tfB">
-                                <rect key="frame" x="0.0" y="758" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="98H-Eu-oyZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Have an account? Log in.">
+                                <state key="normal" title="Already have an account? Log in.">
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csT-DC-0bX">
-                                <rect key="frame" x="106.5" y="97" width="201.5" height="52.5"/>
+                                <rect key="frame" x="106.5" y="141" width="201.5" height="52.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Instagram">
                                         <attributes>
@@ -150,17 +150,17 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Apply password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HcD-2K-Jhw">
-                                <rect key="frame" x="47" y="335.5" width="319" height="50"/>
+                                <rect key="frame" x="47" y="379.5" width="319" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WAG-Oc-If0"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="jgj-sC-7fj"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vG-34-KBL">
-                                <rect key="frame" x="47" y="408.5" width="320" height="50"/>
+                                <rect key="frame" x="47" y="452.5" width="320" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bP4-Wx-AOc"/>
                                 </constraints>
@@ -194,6 +194,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zrx-eG-ai5"/>
                     <connections>
+                        <outlet property="submitSignUpButton" destination="3vG-34-KBL" id="yMt-D7-ygo"/>
                         <outletCollection property="signUpTextFields" destination="qYn-er-eDS" collectionClass="NSMutableArray" id="jWJ-yd-tbE"/>
                         <outletCollection property="signUpTextFields" destination="1yk-Jq-fTC" collectionClass="NSMutableArray" id="Pl1-MZ-Fag"/>
                         <outletCollection property="signUpTextFields" destination="HcD-2K-Jhw" collectionClass="NSMutableArray" id="gqJ-0t-y5C"/>

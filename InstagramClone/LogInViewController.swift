@@ -21,11 +21,11 @@ class LoginInViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var submitLogIn: UIButton! {
+    @IBOutlet weak var submitLogInButton: UIButton! {
         didSet {
-            submitLogIn.backgroundColor = .clear
-            submitLogIn.layer.borderWidth = 3
-            submitLogIn.layer.borderColor = UIColor.white.withAlphaComponent(0.25).cgColor
+            submitLogInButton.backgroundColor = .clear
+            submitLogInButton.layer.borderWidth = 3
+            submitLogInButton.layer.borderColor = UIColor.white.withAlphaComponent(0.25).cgColor
         }
     }
     

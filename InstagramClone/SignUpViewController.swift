@@ -21,6 +21,14 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var submitSignUpButton: UIButton! {
+        didSet {
+            submitSignUpButton.backgroundColor = .clear
+            submitSignUpButton.layer.borderWidth = 3
+            submitSignUpButton.layer.borderColor = UIColor.white.withAlphaComponent(0.25).cgColor
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
