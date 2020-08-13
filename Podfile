@@ -6,6 +6,9 @@ target 'InstagramClone' do
   use_frameworks!
 
   # Pods for InstagramClone
+  pod 'FirebaseUI'
   pod 'Firebase/Analytics'
+  pod 'FirebaseUI/Auth'
+  pod 'Firebase/Database'
 
 end

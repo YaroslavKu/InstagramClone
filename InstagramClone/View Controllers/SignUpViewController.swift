@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
     @IBOutlet var signUpTextFields: [UITextField]! {
@@ -26,6 +28,7 @@ class SignUpViewController: UIViewController {
             submitSignUpButton.backgroundColor = .clear
             submitSignUpButton.layer.borderWidth = 3
             submitSignUpButton.layer.borderColor = UIColor.white.withAlphaComponent(0.25).cgColor
+            submitSignUpButton.isHidden = true
         }
     }
     
@@ -39,20 +42,58 @@ class SignUpViewController: UIViewController {
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        handleTextField()
+    }
+    
+    func handleTextField() {
+        for tf in signUpTextFields {
+            tf.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange(_:)), for: .editingChanged)
+        }
+    }
+    
+    
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let username = signUpTextFields[0].text, !username.isEmpty,
+              let email = signUpTextFields[1].text, !email.isEmpty,
+              let password = signUpTextFields[2].text, !password.isEmpty,
+              let applyPassword = signUpTextFields[3].text, !applyPassword.isEmpty
+        else {
+            
+            submitSignUpButton.isHidden = true
+            print("not valid")
+            return
+        }
+        
+        submitSignUpButton.isHidden = false
+        
+        
+        
     }
     
     @IBAction func dismisOnClick(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signUpButton_OnClick(_ sender: Any) {
+        
+        Auth.auth().createUser(withEmail: signUpTextFields[1].text!, password: signUpTextFields[3].text!, completion: { user, error in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+                
+            let ref = Database.database().reference()
+            let usersRef = ref.child("users")
+            let uid = user?.user.uid
+            let newUserRef = usersRef.child(uid!)
+            newUserRef.setValue(["username": self.signUpTextFields[0].text,
+                                 "email": self.signUpTextFields[1].text])
+            print(newUserRef.description())
+            
+        })
     }
-    */
-
+    
 }
